@@ -1,0 +1,26 @@
+.followups-tabs{direction:rtl}
+#followups [hidden]{display:none!important}
+.news-sections{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start;direction:rtl}
+.news-section{padding:20px;min-width:0;border-top:3px solid var(--cyan)}
+.news-section:nth-child(2){border-top-color:var(--gold)}
+.news-section:nth-child(3){border-top-color:var(--green)}
+.news-section header{margin-bottom:18px}
+.news-section h3{font-size:1.25rem;margin:5px 0}
+.news-section .kicker{font-size:0.875rem}
+.news-controls{display:grid;gap:8px;min-height:84px}
+.news-controls label,.news-actions,.news-status,.news-more{font-size:0.875rem}
+.news-controls>div,.news-actions{display:flex;gap:8px;align-items:center}
+.news-actions{min-height:84px;justify-content:space-between;color:var(--muted)}
+.news-controls input,.news-controls select{width:100%;min-width:0;min-height:44px;background:var(--bg,#07111f);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:9px;font:inherit;font-size:1rem}
+.news-section button{flex-shrink:0;min-height:44px;border:1px solid var(--line);border-radius:10px;background:rgba(85,216,242,.09);color:var(--cyan);padding:8px 12px;font:inherit;font-size:0.875rem;cursor:pointer}
+.news-section :is(button,input,select,a):focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.news-status{line-height:1.8;color:var(--muted);margin:14px 0}
+.news-item{padding:16px 0;border-top:1px solid var(--line)}
+.news-item h4{margin:0 0 10px;font-size:1rem;line-height:1.9;font-weight:600}
+.news-item a{color:var(--text);text-decoration:none;overflow-wrap:anywhere}
+.news-item a:hover{text-decoration:underline;color:var(--cyan)}
+.news-item time{display:block;font-size:0.8125rem;color:var(--muted)}
+.news-more{display:block;padding-top:14px;border-top:1px solid var(--line);color:var(--cyan);text-decoration:none;line-height:1.8}
+.news-note{grid-column:1/-1;color:var(--muted);font-size:0.875rem;line-height:1.9;margin:0;padding:4px}
+@media(max-width:1100px){.news-sections{grid-template-columns:1fr}.news-section{padding:18px}.news-controls,.news-actions{min-height:0}.news-items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px}}
+@media(max-width:600px){.news-items{grid-template-columns:1fr}.followups-tabs button{flex:0 0 auto;font-size:0.875rem}.news-section h3{font-size:1.1875rem}}

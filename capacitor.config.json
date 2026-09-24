@@ -1,0 +1,12 @@
+{
+  "appId": "org.universalcalendar.app",
+  "appName": "التقويم العالمي الشامل",
+  "webDir": ".capacitor-web",
+  "plugins": {
+    "LocalNotifications": {
+      "iconColor": "#0c1928",
+      "sound": "adhan_alert.wav",
+      "presentationOptions": ["banner", "list", "sound"]
+    }
+  }
+}

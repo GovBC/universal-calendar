@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">التقويم العالمي الشامل</string>
+    <string name="title_activity_main">التقويم العالمي الشامل</string>
+    <string name="package_name">org.universalcalendar.app</string>
+    <string name="custom_url_scheme">org.universalcalendar.app</string>
+</resources>

@@ -1,0 +1,53 @@
+/* Morning interface: opaque light surfaces and readable accent colors. */
+body.light :is(.sidebar,.mobile-nav,.more-sheet){background:#f8fbfe;box-shadow:var(--shadow)}
+body.light :is(.location-button,.icon-button,.outline-button,.suggestions button,.prompt-chips button,.more-grid>button,.youth-tabs button){background:var(--panel);color:var(--text);border-color:var(--line)}
+body.light .avatar{color:#fff}
+body.light :is(.nav-item:hover,.mobile-nav button:hover){background:var(--panel2);color:var(--text)}
+body.light .nav-item.active{background:#dceef5;color:#005c74}
+body.light :is(.sample-banner,.live-caption,.safety){color:var(--muted)}
+body.light .prototype-note span{opacity:1}
+body.light :is(.primary-button,.ask-box button,.chat-input button,.time-control>button,.days span.today,.days button.today){background:#006b85;color:#fff}
+body.light .solar .today{background:var(--gold);color:#fff}
+body.light :is(.ai-mark,.message>span){background:linear-gradient(145deg,#006b85,#4855b4);color:#fff}
+body.light :is(.primary-button:hover,.ask-box button:hover,.chat-input button:hover){background:#00566d}
+body.light :is(button,input,select,summary,[role="button"]):focus-visible{outline:3px solid #006b85;outline-offset:3px}
+body.light :is(.ask-box,.chat-input,.segmented,.year-tabs,.view-tabs){background:var(--bg2);border-color:var(--line)}
+body.light input::placeholder{color:#536a7c;opacity:1}
+body.light :is(.live-dialog,.camera-dialog){background:var(--panel);border-color:var(--line)}
+body.light :is(.live-dialog input,.live-dialog select,.live-fields input,.calendar-live-nav input,.sky-live-fields input){background:var(--bg2);color:var(--text);border-color:#9aafbf}
+body.light :is(.live-dialog p,.camera-dialog p){color:var(--muted)}
+body.light #settingsError{color:var(--danger)}
+body.light .live-heading button{background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:10px}
+body.light .prayer-strip button{background:var(--bg2)}
+body.light .prayer-strip .passed{opacity:1;color:var(--muted)}
+body.light .prayer-strip .next{background:#e0f1f5;border-color:#006b85;box-shadow:inset 0 -3px #006b85}
+body.light .prayer-strip .next :is(b,span){color:#005c74}
+body.light .status-badge.amber{background:#fff2d9;color:#805000;border-color:#d7b570}
+body.light .score-ring{background:conic-gradient(var(--cyan) calc(var(--score)*1%),#d8e4ed 0)}
+body.light .score-ring:after{background:#fff}
+body.light .score-ring b{color:var(--text)}
+body.light .confidence div{background:#d8e4ed}
+body.light .toast{background:#f0faf5;color:var(--text);border-color:#8ebba8;box-shadow:var(--shadow)}
+body.light .gps-switch input:checked+span{background:#006b85;border-color:#006b85}
+body.light .gps-switch input:checked+span:after{background:#fff}
+body.light .youth-tabs button.active{background:#e3f3eb;color:var(--green);border-color:#6eac91}
+body.light .youth-organ:is(:hover,.active){background:#eaf6f0;border-color:#6eac91}
+body.light .youth-process article.active-stage{background:#fff1eb;border-color:#bf8c7f}
+body.light .youth-process article.active-stage>span{background:#f3d9d0;color:#8b3c30}
+body.light .youth-tissue-key header b{color:#8b3c30}
+body.light .regen-hero{background:linear-gradient(135deg,#e3f3eb,#e7f2fa)}
+body.light .regen-hero p{color:var(--muted)}
+body.light .regen-status-row span{background:#fff;border-color:var(--line)}
+body.light .regen-status-row .proof,body.light .regen-organ em{color:var(--gold)}
+body.light .regen-status-row .goal{color:var(--green)}
+body.light .regen-path article{background:var(--bg2)}
+body.light .regen-organ .regen-icon{color:#68439c}
+
+/* Scientific scenes retain a dark palette independently of the interface. */
+body.light :is(.sky-viewport,.sim-sky,.sky-lab,.eclipse-canvas-wrap,.heritage-canvas-wrap,.precession-wrap,.zx-scene,.mini-orbit,.camera-shell){
+  --text:#edf7ff;--muted:#b9cede;--cyan:#55d8f2;--gold:#f6c85f;--green:#68d6ad;
+  --line:rgba(164,202,235,.25);color:#edf7ff;color-scheme:dark;
+}
+body.light .sky-readout{background:rgba(3,12,22,.88);color:#edf7ff}
+body.light .moon-large span{color:#edf7ff}
+body.light .sky-lab button:focus-visible{outline-color:#55d8f2}

@@ -81,6 +81,8 @@ out
 # Nuxt.js build / generate output
 .nuxt
 dist
+!dist/
+!dist/**
 .output
 
 # Gatsby files
@@ -141,3 +143,25 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Capacitor build copies and native build output
+.capacitor-web/
+android/.gradle/
+android/local.properties
+android/build/
+android/app/build/
+android/app/src/main/assets/public/
+android/app/src/main/assets/capacitor.config.json
+android/app/src/main/assets/capacitor.plugins.json
+android/capacitor.settings.gradle
+android/app/capacitor.build.gradle
+android-app/build/
+ios/App/App/public/
+ios/App/App/capacitor.config.json
+ios/App/Pods/
+ios/App/DerivedData/
+ios/App/build/
+*.keystore
+*.jks
+*.p12
+*.mobileprovision

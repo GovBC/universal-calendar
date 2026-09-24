@@ -1,0 +1,23 @@
+{
+  "model": "EGM96",
+  "source": "https://cdn.proj.org/us_nga_egm96_15.tif",
+  "license": "Public Domain",
+  "credit": "NGA; GeoTIFF distribution by PROJ / OSGeo",
+  "sourceSha256": "db493027562c9b004d7220fa881f5603adada4e1c5029b933fa7de4547b0e78d",
+  "encoding": "little-endian int16, centimetres; row-major north to south",
+  "rows": 181,
+  "columns": 360,
+  "north": 90,
+  "west": -180,
+  "stepDegrees": 1,
+  "sourceStepDegrees": 0.25,
+  "unitMetres": 0.01,
+  "sampleMinMetres": -106.59,
+  "sampleMaxMetres": 84.23,
+  "sourceMinMetres": -106.9910888671875,
+  "sourceMaxMetres": 85.39092254638672,
+  "referenceEllipsoid": "WGS 84",
+  "semiMajorAxisMetres": 6378137,
+  "inverseFlattening": 298.257223563,
+  "method": "Every fourth source node retained, then rounded to centimetres. Bilinear interpolation at display time. Educational display, not surveying."
+}

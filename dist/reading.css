@@ -1,0 +1,69 @@
+/* Text sizes use rem throughout the app; keep controls and cards able to reflow. */
+.font-size-button{display:flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:14px;background:var(--panel);color:var(--text);font:inherit;font-size:.875rem;cursor:pointer}
+.font-size-button>span{color:var(--cyan);font-weight:800;white-space:nowrap}
+.hour-cycle-button{display:flex;align-items:center;justify-content:center;gap:5px;min-width:76px;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:14px;background:var(--panel);color:var(--text);font:inherit;cursor:pointer}
+.hour-cycle-button span{color:var(--cyan);font-size:.9375rem;font-weight:900}.hour-cycle-button b{font-size:.6875rem}.hour-cycle-button[aria-pressed="true"]{border-color:rgba(76,211,231,.45);background:rgba(76,211,231,.09)}
+.reading-dialog{width:calc(100% - 24px);max-width:560px;max-height:90dvh;overflow:auto;padding:20px;border:1px solid var(--line);border-radius:20px;background:var(--bg2);color:var(--text)}
+.reading-dialog::backdrop{background:#000a}
+.reading-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.reading-heading h2{margin:0;font-size:1.25rem}
+.reading-dialog button{min-width:44px;min-height:44px;border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--text);font:inherit;cursor:pointer}
+.reading-dialog button:disabled{opacity:.4;cursor:default}
+.reading-heading button{flex-shrink:0;font-size:1.5rem}
+.reading-dialog p{font-size:1rem;line-height:1.7;overflow-wrap:anywhere}
+.reading-dialog label{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-weight:700}
+.reading-dialog output{color:var(--cyan)}
+.reading-controls{display:flex;direction:ltr;align-items:center;gap:12px;margin:14px 0}
+.reading-controls input{width:100%;min-width:0;min-height:44px;accent-color:var(--cyan)}
+.reading-controls button{flex:0 0 44px}
+.reading-example{padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.reading-reset{padding:10px 14px;width:100%}
+#fontSizeSaved{color:var(--muted);font-size:.875rem;margin-bottom:0}
+.topbar,.top-actions{flex-wrap:wrap;gap:12px}.topbar>div,.top-actions>*{min-width:0}
+.top-actions :is(.font-size-button,.hour-cycle-button){flex-shrink:0}
+.sidebar{overflow-y:auto}.brand-orbit{flex-shrink:0}
+.sample-banner{height:auto;min-height:28px}
+.panel,.page-intro>div,.panel-heading>div,.date-ribbon article{min-width:0}
+html:not([data-reading-size="100"]) .panel-heading,
+html:not([data-reading-size="100"]) .page-intro,
+html:not([data-reading-size="100"]) .prayer-footer,
+html:not([data-reading-size="100"]) .date-primary{flex-wrap:wrap}
+html:not([data-reading-size="100"]) .days span{height:auto;min-height:2rem}
+html:not([data-reading-size="100"]) .time-row{grid-template-columns:repeat(6,minmax(5rem,1fr));overflow-x:auto}
+html:not([data-reading-size="100"]) .prayer-strip{grid-template-columns:repeat(3,minmax(0,1fr))}
+html:not([data-reading-size="100"]) .mobile-nav button{overflow:visible;overflow-wrap:anywhere;min-height:44px}
+html:not([data-reading-size="100"]) .main-stage{padding-bottom:8rem}
+html:not([data-reading-size="100"]) :is(p,li,h1,h2,h3,label,td,th){overflow-wrap:anywhere}
+html[data-reading-size="175"] .dashboard-grid,html[data-reading-size="200"] .dashboard-grid{grid-template-columns:minmax(0,1fr)}
+/* Keep decorative/action glyphs centered when the reading-size setting scales text.
+   Their touch targets stay fixed; only the accompanying labels grow and reflow. */
+.icon-button{display:grid;place-items:center;flex:0 0 42px;padding:0;font-size:22px;line-height:1;overflow:hidden}
+.more-head>button{display:grid;place-items:center;flex:0 0 36px;padding:0;font-size:20px;line-height:1;overflow:hidden}
+.more-grid>button{grid-template-columns:42px minmax(0,1fr);min-width:0}
+.more-grid>button>span{align-self:center;justify-self:center;box-sizing:border-box;flex:none;font-size:20px;line-height:1;white-space:nowrap}
+.mobile-nav button{grid-template-rows:20px minmax(0,auto);align-content:center;min-width:0;line-height:1.2}
+.mobile-nav button>span{display:grid;place-items:center;min-width:20px;min-height:20px;font-size:19px;line-height:1;white-space:nowrap}
+.language-button{display:flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:14px;background:var(--panel);color:var(--text);font:inherit;font-size:.875rem;cursor:pointer;white-space:nowrap}
+.language-button>span{color:var(--cyan);font-weight:900;font-size:.9rem;letter-spacing:-.08em}.language-button b{font-weight:700}
+.date-secondary b{overflow-wrap:anywhere;line-height:1.45}
+.date-secondary small{overflow-wrap:anywhere}
+.language-dialog{width:calc(100% - 24px);max-width:520px;max-height:90dvh;overflow:auto;padding:0;border:1px solid var(--line);border-radius:22px;background:transparent;color:var(--text)}
+.language-dialog::backdrop{background:rgba(0,6,12,.78);backdrop-filter:blur(7px)}
+.language-sheet{padding:21px;background:var(--bg2);border-radius:22px;box-shadow:0 22px 70px rgba(0,0,0,.38)}
+.language-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.language-heading h2{margin:2px 0 0;font-size:1.3rem}.language-heading>button{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;padding:0;border:1px solid var(--line);border-radius:13px;background:var(--panel);color:var(--text);font:inherit;font-size:1.5rem;line-height:1;cursor:pointer}
+.language-sheet>p{font-size:.9375rem;line-height:1.75;overflow-wrap:anywhere}.language-options{display:grid;gap:10px;margin-top:17px}.language-option{display:grid;grid-template-columns:42px minmax(0,1fr) 24px;gap:11px;align-items:center;width:100%;min-height:68px;padding:10px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.025);color:var(--text);text-align:start;cursor:pointer}.language-option:hover,.language-option:focus-visible{border-color:rgba(85,216,242,.6);background:rgba(85,216,242,.08)}.language-option[aria-checked="true"]{border-color:rgba(85,216,242,.72);background:rgba(85,216,242,.11);box-shadow:inset 3px 0 var(--cyan)}.language-option-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:rgba(85,216,242,.12);color:var(--cyan);font-size:1.2rem;font-weight:800}.language-option b,.language-option small{display:block}.language-option b{font-size:.9375rem}.language-option small{margin-top:2px;color:var(--muted);font-size:.75rem;line-height:1.45}.language-check{color:var(--cyan);font-size:1.2rem;opacity:0}.language-option[aria-checked="true"] .language-check{opacity:1}.language-note{margin-bottom:0;color:var(--muted);font-size:.8125rem!important}
+body.is-malayalam .sidebar{right:auto;left:0;border-left:0;border-right:1px solid var(--line)}body.is-malayalam .main-stage{margin-right:0;margin-left:var(--sidebar)}body.is-malayalam .nav-item{text-align:left}body.is-malayalam .nav-item.active{box-shadow:inset 3px 0 var(--cyan)}body.is-malayalam .more-grid>button,body.is-malayalam .verification-card ul{text-align:left}body.is-malayalam .language-option[aria-checked="true"]{box-shadow:inset -3px 0 var(--cyan)}
+@media(max-width:760px){.language-button{flex:0 0 42px;width:42px;padding:4px}.language-button b{display:none}.language-button>span{font-size:.88rem}.language-dialog{width:calc(100% - 16px);margin:auto auto 8px}.language-sheet{padding:18px 15px calc(18px + env(safe-area-inset-bottom))}.language-option{min-height:64px}}
+@media(max-width:760px){body.is-malayalam .main-stage{margin-left:0}}
+@media(max-width:1050px){
+html:not([data-reading-size="100"]) :is(.calendar-layout,.youth-layout,.prayer-layout,.worship-overview,.followups-grid){grid-template-columns:minmax(0,1fr)}
+html:not([data-reading-size="100"]) .youth-process{grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr))}
+}
+@media(max-width:760px){
+.top-actions{justify-content:flex-start}.top-actions .location-button{flex:1 1 160px}.top-actions .icon-button{display:grid;place-items:center;flex:0 0 42px}
+html:not([data-reading-size="100"]) .date-ribbon{grid-template-columns:minmax(0,1fr)}
+html:not([data-reading-size="100"]) .date-primary{grid-column:auto}
+html:not([data-reading-size="100"]) :is(.mini-stats,.youth-horizon-grid,.live-fields,.more-grid){grid-template-columns:minmax(0,1fr)}
+html:not([data-reading-size="100"]) .youth-organ-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+html:not([data-reading-size="100"]) .prayer-strip{grid-template-columns:repeat(2,minmax(0,1fr))}
+}

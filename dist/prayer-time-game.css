@@ -1,0 +1,51 @@
+.prayer-time-game{font-size:1rem;line-height:1.7}
+.prayer-time-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:14px}
+.prayer-time-heading h3{margin:0;font-size:1.5rem}
+.prayer-time-progress{display:grid;grid-template-columns:auto auto;gap:4px 16px;font-size:.875rem}
+.prayer-time-progress strong{color:var(--green)}
+.prayer-time-progress progress{grid-column:1/-1;width:100%;height:6px;accent-color:var(--green)}
+.prayer-time-context{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:12px;color:var(--muted)}
+.prayer-time-context span{color:var(--text);font-weight:700}
+.prayer-time-context b{color:var(--cyan);font-size:.875rem}
+.prayer-time-context small{flex-basis:100%;color:var(--gold);font-size:.875rem}
+.prayer-time-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(275px,350px);gap:24px;align-items:start}
+.prayer-time-sky,.prayer-time-controls{min-width:0}
+.prayer-time-stage{position:relative;overflow:hidden;border:1px solid rgba(85,216,242,.22);border-radius:8px;background:#071725}
+#prayerTimeCanvas{display:block;width:100%;height:auto;aspect-ratio:16/10}
+.prayer-time-clock{position:absolute;top:14px;right:14px;display:grid;min-width:140px;padding:9px 12px;border:1px solid rgba(255,255,255,.13);border-radius:8px;background:rgba(4,13,22,.9)}
+.prayer-time-clock span,.prayer-time-clock small{color:#aac1d1;font-size:.75rem}
+.prayer-time-clock b{color:#f6c85f;font-size:1.375rem;line-height:1.35}
+.prayer-time-chart-note{margin:8px 0 16px;color:var(--muted);font-size:.875rem}
+.prayer-time-readouts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 20px;margin:0}
+.prayer-time-readouts div{padding-top:8px;border-top:1px solid var(--line)}
+.prayer-time-readouts dt{color:var(--muted);font-size:.875rem}
+.prayer-time-readouts dd{margin:0;color:var(--cyan);font-size:1.0625rem;font-weight:700;overflow-wrap:anywhere}
+.prayer-time-controls{display:flex;flex-direction:column;gap:8px}
+.prayer-time-controls label{color:var(--muted);font-size:.875rem}
+.prayer-time-controls output{display:block;color:var(--cyan);font-size:1rem;font-weight:700}
+.prayer-time-controls select{width:100%;min-height:44px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--text);font:inherit}
+.prayer-time-controls input[type="range"]{width:100%;min-width:0;min-height:34px;margin:0;accent-color:var(--cyan)}
+.prayer-time-mission{min-height:92px;margin:2px 0 4px;padding:12px 14px;border-inline-start:3px solid var(--cyan);background:rgba(85,216,242,.06)}
+.prayer-time-mission b{color:var(--cyan)}
+.prayer-time-mission p{margin:4px 0 0}
+.prayer-time-nudges{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-bottom:5px}
+.prayer-time-nudges button{min-height:39px;padding:6px;border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.025);color:var(--muted);font:inherit;font-size:.8125rem;cursor:pointer}
+.prayer-time-nudges button:hover{border-color:rgba(85,216,242,.4);color:var(--text)}
+.prayer-time-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
+.prayer-time-actions button{min-height:44px;border-radius:8px;font:inherit}
+.prayer-time-secondary{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+.prayer-time-secondary button{min-height:40px;padding:8px 4px;border:0;background:transparent;color:var(--cyan);font:inherit;cursor:pointer}
+.prayer-time-secondary button:disabled{color:var(--muted);cursor:default;opacity:.55}
+.prayer-time-feedback{min-height:3.4em;margin:20px 0;padding:14px 16px;border-inline-start:3px solid var(--cyan);background:rgba(85,216,242,.05)}
+.prayer-time-feedback[data-kind="success"]{border-color:var(--green);background:rgba(104,214,173,.08)}
+.prayer-time-feedback[data-kind="retry"]{border-color:var(--gold);background:rgba(246,200,95,.06)}
+.prayer-time-science{padding-top:12px;border-top:1px solid var(--line);color:var(--muted);font-size:.875rem}
+.prayer-time-science summary{min-height:40px;color:var(--text);cursor:pointer}
+.prayer-time-science p{margin:10px 0}
+.prayer-time-science button{margin-top:4px;border-radius:8px}
+.prayer-time-error{padding:16px;border:1px solid var(--line);border-radius:8px}
+.prayer-time-game :is(button,select,input,summary):focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+body.light .prayer-time-clock{background:rgba(247,251,253,.93)}
+body.light .prayer-time-clock span,body.light .prayer-time-clock small{color:#496176}
+@media(max-width:1050px){.prayer-time-layout{grid-template-columns:1fr}.prayer-time-controls{max-width:none}.prayer-time-mission{min-height:0}}
+@media(max-width:560px){.prayer-time-heading{align-items:flex-start;flex-wrap:wrap}.prayer-time-progress{min-width:145px}#prayerTimeCanvas{aspect-ratio:1/1}.prayer-time-clock{top:10px;right:10px;min-width:122px;padding:7px 9px}.prayer-time-readouts{gap:12px}.prayer-time-readouts dd{font-size:1rem}.prayer-time-nudges{grid-template-columns:repeat(2,minmax(0,1fr))}.prayer-time-actions{grid-template-columns:1fr}}

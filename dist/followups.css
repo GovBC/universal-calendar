@@ -1,0 +1,17 @@
+#followups [hidden]{display:none!important}
+#followups .followups-scope{display:flex;align-items:end;flex-wrap:wrap;gap:16px;padding:18px;margin-bottom:12px}
+#followups .followups-scope>div{display:flex;gap:8px}
+#followups .followups-scope label{display:grid;gap:6px;flex:1;min-width:150px;color:var(--muted);font-size:.875rem}
+#followups .followups-scope button,#followups .followups-scope input,#followups .followups-scope select{font:inherit;font-size:1rem;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:11px;background:var(--bg2);color:var(--text);max-width:100%;width:100%}
+#followups .followups-scope button{cursor:pointer}
+#followups .followups-scope button.active{border-color:var(--cyan);color:var(--cyan)}
+#followups .followups-scope p{flex-basis:100%;margin:0;font-size:1rem;line-height:1.8;color:var(--muted)}
+#followups a{color:var(--cyan);font-size:.875rem}
+#followups .followups-tabs button,#followups .followups-toolbar label,#followups .followup-category,#followups .followups-count small,#followups .followups-updated small{font-size:.875rem}
+#followups .followups-toolbar input,#followups .followups-toolbar select{font-size:1rem}
+#followups .followup-card{display:flex;flex-direction:column;gap:10px;min-height:230px}
+#followups .followup-card h3{font-size:1.125rem;line-height:1.7;margin:0}
+#followups .followup-winner,#followups .followups-feature p,#followups .followups-empty p,#followups .followups-note p{font-size:1rem;line-height:1.8}
+#followups .followup-card footer{position:static;margin-top:auto;font-size:.875rem;flex-wrap:wrap}
+#followups button:focus-visible,#followups a:focus-visible,#followups input:focus-visible,#followups select:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+@media(max-width:760px){#followups .followups-scope>div{flex-basis:100%}#followups .followups-scope label{min-width:100%}#followups .followups-tabs button{flex:1 1 130px}#followups .followups-feature{overflow-wrap:anywhere}}
