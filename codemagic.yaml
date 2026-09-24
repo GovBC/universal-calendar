@@ -69,50 +69,39 @@ workflows:
     artifacts:
       - android/app/build/outputs/bundle/release/*.aab
 
-      ios-release:
+  ios-release:
     name: iOS • ملف IPA موقّع
     max_build_duration: 120
     instance_type: mac_mini_m2
-
     environment:
       node: "24"
       xcode: latest
       ios_signing:
         distribution_type: app_store
         bundle_identifier: org.universalcalendar.app
-
     integrations:
       app_store_connect: universal-calendar-codemagic
-
     scripts:
       - name: Install dependencies
-        script: |
-          npm ci
-
+        script: npm ci
       - name: Prepare the site and sync iOS
         script: |
           npm run build
           npx cap sync ios
-
       - name: Apply signing profiles
-        script: |
-          xcode-project use-profiles
-
+        script: xcode-project use-profiles
       - name: Set build number
         script: |
           cd ios/App
           agvtool new-version -all "$BUILD_NUMBER"
-
       - name: Build signed IPA
         script: |
           xcode-project build-ipa \
             --project "$CM_BUILD_DIR/ios/App/App.xcodeproj" \
             --scheme App
-
     artifacts:
       - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
-
     publishing:
       app_store_connect:
         auth: integration
