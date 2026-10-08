@@ -46,28 +46,87 @@ workflows:
 
   android-release:
     name: Android • حزمة AAB موقّعة
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: main
+          include: true
+          source: true
     max_build_duration: 90
     instance_type: mac_mini_m2
     environment:
       node: "24"
-      java: 17
+      java: 21
       android_signing:
         - universal_calendar_upload
+      groups:
+        - google_play
+      vars:
+        PACKAGE_NAME: org.universalcalendar.app
+        GOOGLE_PLAY_TRACK: internal
     scripts:
+      - name: Validate Android release configuration
+        script: |
+          set -euo pipefail
+          : "${CM_KEYSTORE_PATH:?The original Android release keystore must be uploaded to Codemagic}"
+          : "${CM_KEYSTORE_PASSWORD:?Missing release keystore password}"
+          : "${CM_KEY_ALIAS:?Missing release key alias}"
+          : "${CM_KEY_PASSWORD:?Missing release key password}"
+          : "${GOOGLE_PLAY_SERVICE_ACCOUNT_CREDENTIALS:?Missing Google Play service account credentials}"
+          test "$PACKAGE_NAME" = "org.universalcalendar.app"
+          test "$GOOGLE_PLAY_TRACK" = "internal"
       - name: Install dependencies
         script: npm ci
       - name: Prepare the site and sync Android
         script: |
+          set -euo pipefail
           npm run build
           npx cap sync android
+      - name: Set an increasing Android version code
+        script: |
+          set -euo pipefail
+          PLAY_VERSION_CODE=$(google-play get-latest-build-number --package-name "$PACKAGE_NAME")
+          ANDROID_VERSION_CODE=$(python3 - "$PLAY_VERSION_CODE" "$PROJECT_BUILD_NUMBER" <<'PY'
+          import sys
+          latest = int(sys.argv[1].strip() or "0")
+          project_build = int(sys.argv[2])
+          version_code = max(latest + 1, project_build)
+          if not 1 <= version_code <= 2100000000:
+              raise SystemExit("Android versionCode is outside the Google Play range")
+          print(version_code)
+          PY
+          )
+          echo "ANDROID_VERSION_CODE=$ANDROID_VERSION_CODE" >> "$CM_ENV"
+          echo "Android versionCode: $ANDROID_VERSION_CODE"
       - name: Build signed release bundle
         script: |
-          test -n "$CM_KEYSTORE_PATH" && test -n "$CM_KEYSTORE_PASSWORD" && \
-            test -n "$CM_KEY_ALIAS" && test -n "$CM_KEY_PASSWORD"
+          set -euo pipefail
           cd android
-          ./gradlew --no-daemon bundleRelease -PcalendarVersionCode="$BUILD_NUMBER"
+          ./gradlew --no-daemon bundleRelease -PcalendarVersionCode="$ANDROID_VERSION_CODE"
+      - name: Verify the release bundle signature
+        script: |
+          set -euo pipefail
+          BUNDLE_PATH="$CM_BUILD_DIR/android/app/build/outputs/bundle/release/app-release.aab"
+          test -s "$BUNDLE_PATH"
+          python3 - "$BUNDLE_PATH" <<'PY'
+          import sys
+          import zipfile
+          with zipfile.ZipFile(sys.argv[1]) as bundle:
+              names = [name.upper() for name in bundle.namelist()]
+          if not any(name.startswith("META-INF/") and name.endswith(".SF") for name in names):
+              raise SystemExit("The Android App Bundle is unsigned")
+          if not any(name.startswith("META-INF/") and name.endswith((".RSA", ".DSA", ".EC")) for name in names):
+              raise SystemExit("The Android App Bundle has no signing certificate")
+          PY
+          jarsigner -verify "$BUNDLE_PATH"
     artifacts:
       - android/app/build/outputs/bundle/release/*.aab
+    publishing:
+      google_play:
+        credentials: $GOOGLE_PLAY_SERVICE_ACCOUNT_CREDENTIALS
+        track: internal
+        submit_as_draft: true
 
   ios-release:
     name: iOS • ملف IPA موقّع
